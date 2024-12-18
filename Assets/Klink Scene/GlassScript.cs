@@ -5,6 +5,7 @@ using UnityEngine;
 public class GlassScript : MonoBehaviour
 {
     [SerializeField] AudioSource audio;
+    [SerializeField] ParticleSystem particle;
 
     [SerializeField] GameObject glass1;
     [SerializeField] GameObject glass2;
@@ -46,6 +47,8 @@ public class GlassScript : MonoBehaviour
     IEnumerator EndGame()
     {
         audio.Play();
+        yield return new WaitForSeconds(0.3f);
+        particle.Play();
         yield return new WaitForSeconds(1f);
         GameObject.Find("DontDestroy").GetComponent<DontDestroy>().LoadScene("Kerstboom", 1);
     }
