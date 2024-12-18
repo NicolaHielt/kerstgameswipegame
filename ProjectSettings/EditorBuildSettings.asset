@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/KlinkScene.unity
     guid: b79d17bfb3cdf5d49a6a3513c5d8882a
+  - enabled: 1
+    path: Assets/Scenes/ChristmasMemory.unity
+    guid: be1f80dedab50074cbe1ee25d0537d49
   m_configObjects: {}

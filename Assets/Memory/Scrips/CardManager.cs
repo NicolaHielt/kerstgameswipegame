@@ -6,6 +6,7 @@ using UnityEngine;
 public class CardManager : MonoBehaviour
 {
     int selectCount = 0;
+    [SerializeField] ParticleSystem particle;
     // Start is called before the first frame update
     List<MemoryMove> cards;
 
@@ -51,7 +52,9 @@ public class CardManager : MonoBehaviour
             }
 
             if(cards.Count == 0) {
-                Debug.Log("scene switch");
+                particle.Play();
+                yield return new WaitForSeconds(2);
+                GameObject.Find("DontDestroy").GetComponent<DontDestroy>().LoadScene("Kerstboom", 2);
             }
             
             
