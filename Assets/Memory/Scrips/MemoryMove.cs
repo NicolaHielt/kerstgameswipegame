@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MemoryMove : MonoBehaviour
 {
     [SerializeField] private GameObject Front;
     [SerializeField] private GameObject Back;
 
+    CardManager cardManager;
+    public string cardName;
 
-    private bool showingFront = false; 
+
+
+    private bool showingFront = true; 
     // Start is called before the first frame update
     void Start()
     {
         MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+        cardManager = GetComponentInParent<CardManager>();
         ShowBack();
 
 
@@ -21,10 +27,14 @@ public class MemoryMove : MonoBehaviour
 
     }
 
+    private void OnMouseDown()
+    {
+        cardManager.SelectCard(this);
+    }
+
     [ContextMenu("Flip")]
     public void FlipCard()
     {
-        showingFront = !showingFront;
         if (showingFront)
         {
             ShowFront();
@@ -35,13 +45,15 @@ public class MemoryMove : MonoBehaviour
         }
     }
 
-    void ShowFront()
+    public void ShowFront()
     {
+        showingFront = true;
         transform.rotation = Quaternion.identity;
     }
 
-    void ShowBack()
+    public void ShowBack()
     {
+        showingFront = false;
         transform.rotation = Quaternion.Euler(0, 0, 180);
     }
    
