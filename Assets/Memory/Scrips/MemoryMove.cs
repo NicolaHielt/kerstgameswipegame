@@ -21,10 +21,6 @@ public class MemoryMove : MonoBehaviour
         cardManager = GetComponentInParent<CardManager>();
         ShowBack();
 
-
-        Front.GetComponent<MeshRenderer>().material.color = Color.red;
-        Back.GetComponent<MeshRenderer>().material.color = Color.blue;
-
     }
 
     private void OnMouseDown()
